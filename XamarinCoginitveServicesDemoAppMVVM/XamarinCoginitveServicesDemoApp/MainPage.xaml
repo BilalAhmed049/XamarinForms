@@ -4,7 +4,8 @@ xmlns="http://xamarin.com/schemas/2014/forms"
 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
 x:Class="XamarinCoginitveServicesDemoApp.MainPage"
 xmlns:viewModels ="clr-namespace:XamarinCoginitveServicesDemoApp; assembly=XamarinCoginitveServicesDemoApp"
-BindingContext = "{viewModels:MainViewModel}">
+BindingContext = "{viewModels:MainViewModel}"
+BackgroundColor = "#CDCDC0">
 
 	<ContentPage.Content>
 		<Grid>
@@ -12,10 +13,12 @@ BindingContext = "{viewModels:MainViewModel}">
 				<RowDefinition/>
 				<RowDefinition/>
 				<RowDefinition/>
+				<RowDefinition/>
 			</Grid.RowDefinitions>
-			<Image Source = "{Binding MyImageSource}" Grid.Row="1"/>
+			<Image Source = "{Binding MyImageSource}" Grid.Row="0" Margin="24"/>
+			<ActivityIndicator IsRunning="{Binding ProgressVisible}" HorizontalOptions="Center" Grid.Row="1"/>
 			<Label HorizontalOptions= "Center" Grid.Row= "2" Text="{Binding ImageDescription}" FontSize="12"/>
-			<Button AutomationId="TakePictureButton" Grid.Row ="3" Text="Take picture" Command="{Binding AddNewImage}"/>
+			<Button AutomationId="TakePictureButton" Grid.Row ="3" Text="Take picture" Command="{Binding AddNewImage}" TextColor="#626d71"/>
 		</Grid>
 	</ContentPage.Content>
 </ContentPage>

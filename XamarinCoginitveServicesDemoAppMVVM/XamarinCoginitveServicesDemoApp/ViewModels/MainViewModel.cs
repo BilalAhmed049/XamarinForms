@@ -51,6 +51,21 @@ namespace XamarinCoginitveServicesDemoApp
 			}
 		}
 
+		bool _progressVisible;
+		public bool ProgressVisible
+		{
+			get
+			{
+				return _progressVisible;
+			}
+
+			set
+			{
+				_progressVisible = value;
+				RaisePropertyChanged();
+			}
+		}
+
 
 		public MainViewModel() : this(new XamarinUniversity.Services.DependencyServiceWrapper())
 		{
@@ -80,6 +95,7 @@ namespace XamarinCoginitveServicesDemoApp
 					});
 					try
 					{
+						ProgressVisible = true;
 						var result = await _cognitiveClient.GetImageDescription(image.GetStream());
 						image.Dispose();
 						foreach (string tag in result.Description.Tags)
@@ -91,6 +107,7 @@ namespace XamarinCoginitveServicesDemoApp
 					{
 						ImageDescription = ex.Message;
 					}
+					ProgressVisible = false;
 				}
 			}
 		}

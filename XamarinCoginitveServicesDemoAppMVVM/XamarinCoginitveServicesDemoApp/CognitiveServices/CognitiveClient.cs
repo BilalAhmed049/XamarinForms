@@ -11,7 +11,7 @@ namespace XamarinCoginitveServicesDemoApp
 	{
 		public async Task<AnalysisResult> GetImageDescription(Stream stream)
 		{
-			VisionServiceClient visionClient = new VisionServiceClient(“<<YOUR API KEY>>”);
+			VisionServiceClient visionClient = new VisionServiceClient("<<YOUR API KEY>>");
 			VisualFeature[] features = { VisualFeature.Tags, VisualFeature.Categories, VisualFeature.Description };
 			return await visionClient.AnalyzeImageAsync(stream, features.ToList(), null);
 		}
