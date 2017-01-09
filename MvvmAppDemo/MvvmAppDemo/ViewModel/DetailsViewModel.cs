@@ -93,7 +93,15 @@ namespace MvvmAppDemo
 						ProgressVisible = true;
 						var result = await _cognitiveClient.GetImageDescription(image.GetStream());
 						image.Dispose();
-						foreach (string tag in result.Description.Tags)
+
+						Person person = new Person()
+						{
+							Name = "Bill",
+							Surname = "Gates",
+							Information = result.Description.Tags
+						};
+
+						foreach (string tag in person.Information)
 						{
 							ImageDescription = ImageDescription + "\n" + tag;
 						}

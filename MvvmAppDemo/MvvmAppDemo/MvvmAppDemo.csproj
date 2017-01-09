@@ -54,6 +54,7 @@
     <Compile Include="Infrastructure\CognitiveServices\ICognitiveClient.cs" />
     <Compile Include="Infrastructure\CognitiveServices\CognitiveClient.cs" />
     <Compile Include="Utils\Config.cs" />
+    <Compile Include="Model\Person.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Xamarin.Forms.Core">
