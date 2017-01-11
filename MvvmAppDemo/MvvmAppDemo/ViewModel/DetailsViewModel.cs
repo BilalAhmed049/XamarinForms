@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Messaging;
 using Plugin.Media;
 using Xamarin.Forms;
 
@@ -64,16 +65,35 @@ namespace MvvmAppDemo
 			}
 		}
 
-		public ICommand AddNewImage { get; private set; }
+		Person _person;
+		public Person Person
+		{
+			get
+			{
+				return _person;
+			}
 
+			set
+			{
+				_person = value;
+				RaisePropertyChanged();
+			}
+		}
+
+		public ICommand AddNewImage { get; private set; }
 
 
 		public DetailsViewModel(INavigationService navigationService, ICognitiveClient cognitiveClient)
 		{
 			_navigationService = navigationService;
 			_cognitiveClient = cognitiveClient;
+			Messenger.Default.Register<Person>(this, person =>
+			{
+				Person = person;
+			});
 			AddNewImage = new Command(async () => await OnAddNewImage());
 		}
+
 
 		private async Task OnAddNewImage()
 		{

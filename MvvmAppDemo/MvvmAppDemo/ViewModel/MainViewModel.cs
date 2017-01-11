@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
 using GalaSoft.MvvmLight;
+using GalaSoft.MvvmLight.Messaging;
 using Xamarin.Forms;
 
 namespace MvvmAppDemo.ViewModel
@@ -29,7 +30,9 @@ namespace MvvmAppDemo.ViewModel
 
 		private void Navigate()
 		{
-			_navigationService.NavigateTo(AppPages.DetailsPage);
+			var person = new Person() { Name = "Daniel" };
+			Messenger.Default.Send(person);
+			_navigationService.NavigateTo(AppPages.DetailsPage, person);
 		}
 
 	}

@@ -43,9 +43,9 @@ namespace MvvmAppDemo.ViewModel
 			////    SimpleIoc.Default.Register<IDataService, DataService>();
 			////}
 			/// 
-            SimpleIoc.Default.Register<MainViewModel>();
-			SimpleIoc.Default.Register<DetailsViewModel>();
 			SimpleIoc.Default.Register<ICognitiveClient, CognitiveClient>();
+			SimpleIoc.Default.Register<MainViewModel>();
+			SimpleIoc.Default.Register<DetailsViewModel>(true);
         }
 
 

@@ -75,8 +75,8 @@ public class NavigationService : INavigationService
 
 						parameters = new[]
 						{
-						parameter
-					};
+							parameter
+						};
 					}
 
 					if (constructor == null)

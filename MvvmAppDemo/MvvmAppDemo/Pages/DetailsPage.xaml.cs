@@ -7,10 +7,11 @@ namespace MvvmAppDemo
 {
 	public partial class DetailsPage : ContentPage
 	{
-		public DetailsPage()
+		public DetailsPage(Person person)
 		{
 			InitializeComponent();
 			BindingContext = App.Locator.DetailsViewModel;
+			App.Locator.DetailsViewModel.Person = person;
 		}
 	}
 }
