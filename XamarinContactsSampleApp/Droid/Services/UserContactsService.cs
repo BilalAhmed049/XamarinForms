@@ -12,7 +12,7 @@ namespace XamarinContactsSampleApp.Droid.Services
 	{
 		private readonly Xamarin.Contacts.AddressBook _book;
 
-		private static IEnumerable<UserContact> _contacts;
+		private static IList<UserContact> _contacts;
 
 		public UserContactsService()
 		{
