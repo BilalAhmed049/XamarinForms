@@ -30,7 +30,7 @@ namespace XamarinContactsSampleApp.iOS.Services
 					Console.WriteLine("Sorry ! Permission was denied by user or manifest !");
 					return;
 				}
-				foreach (var contact in _book.ToList().Where(c => c.Phones.Any())) // Filtering the Contact's that has E-Mail addresses
+				foreach (var contact in _book.ToList().Where(c => c.Phones.Any())) // Filtering the Contact's that has at least one number
 				{
 					var firstOrDefault = contact.Phones.FirstOrDefault();
 					if (firstOrDefault != null)
