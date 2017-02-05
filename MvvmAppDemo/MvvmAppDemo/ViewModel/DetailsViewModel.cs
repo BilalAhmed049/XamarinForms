@@ -11,27 +11,26 @@ namespace MvvmAppDemo
 	public class DetailsViewModel: ViewModelBase
 	{
 		private readonly INavigationService _navigationService;
-		private ICognitiveClient _cognitiveClient;
+		private readonly ICognitiveClient _cognitiveClient;
 
-		ImageSource _myImafeSource;
+		ImageSource _myImageSource;
 		public ImageSource MyImageSource
 		{
 			get
 			{
-				if (_myImafeSource == null)
+				if (_myImageSource == null)
 				{
 					return Device.OnPlatform(
 			iOS: ImageSource.FromFile("Images/picture.png"),
 			Android: ImageSource.FromFile("picture.png"),
 			WinPhone: ImageSource.FromFile("Images/wpicture.png"));
 				}
-				return _myImafeSource;
+				return _myImageSource;
 			}
 
 			set
 			{
-				_myImafeSource = value;
-				RaisePropertyChanged();
+			    Set(ref _myImageSource, value);
 			}
 		}
 
@@ -45,8 +44,7 @@ namespace MvvmAppDemo
 
 			set
 			{
-				_imageDescription = value;
-				RaisePropertyChanged();
+			    Set(ref _imageDescription, value);
 			}
 		}
 
@@ -60,8 +58,7 @@ namespace MvvmAppDemo
 
 			set
 			{
-				_progressVisible = value;
-				RaisePropertyChanged();
+			    Set(ref _progressVisible, value);
 			}
 		}
 
@@ -75,8 +72,7 @@ namespace MvvmAppDemo
 
 			set
 			{
-				_person = value;
-				RaisePropertyChanged();
+			    Set(ref _person, value);
 			}
 		}
 
