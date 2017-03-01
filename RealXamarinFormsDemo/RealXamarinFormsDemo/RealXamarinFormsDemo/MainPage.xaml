@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RealXamarinFormsDemo"
+             xmlns:converters="clr-namespace:RealXamarinFormsDemo.ValueConverters"
+             x:Class="RealXamarinFormsDemo.MainPage">
+
+  <ContentPage.Resources>
+    <ResourceDictionary>
+      <converters:StringToImageConverter x:Key="stringToImageConverter"></converters:StringToImageConverter>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+
+  <ListView ItemsSource="{Binding CarsCollection}" Margin="24">
+    <ListView.ItemTemplate>
+      <DataTemplate>
+      <ImageCell Text="{Binding Brand}" ImageSource="{Binding Thumbnail, Converter={StaticResource stringToImageConverter}}" />
+       </DataTemplate>
+    </ListView.ItemTemplate>
+  </ListView>
+
+</ContentPage>
