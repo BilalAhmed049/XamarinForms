@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="FormsListViewDemo.CustomViewCellListviewPage"
+	xmlns:local="clr-namespace:FormsListViewDemo;assembly=FormsListViewDemo"
+	BindingContext="{x:Static local:DataFactory.People}"
+	xmlns:converters="clr-namespace:FormsListViewDemo.ValueConverters;assembly=FormsListViewDemo">
+
+	<ContentPage.Resources>
+    <ResourceDictionary>
+      <converters:StringToImageConverter x:Key="stringToImageConverter"></converters:StringToImageConverter>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+	
+	<ContentPage.Content>
+		 <ListView x:Name="allContacts" ItemsSource="{Binding .}" Margin="0, 20, 0, 0" RowHeight="80" IsPullToRefreshEnabled="True" Refreshing="OnRefreshing">
+			
+			 <ListView.ItemTemplate>
+              <DataTemplate>
+        <ViewCell>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Image WidthRequest="75" Aspect="AspectFit" Margin="10,0,0,0"
+                        Source="{Binding Thumbnail, Converter={StaticResource stringToImageConverter}}" />
+                <StackLayout Grid.Column="1" VerticalOptions="Center">
+                    <Label Text="{Binding Name}" FontSize="Medium" FontAttributes="Bold" />
+                    <Label Text="{Binding Email}" FontSize="Small" TextColor="Accent" />
+                </StackLayout>
+            </Grid>
+          
+                <ViewCell.ContextActions>
+                <MenuItem Text="Delete" Clicked="OnDelete" IsDestructive="true" />
+                </ViewCell.ContextActions>            
+         </ViewCell>
+      </DataTemplate>
+            </ListView.ItemTemplate>
+		</ListView>
+	</ContentPage.Content>
+
+</ContentPage>

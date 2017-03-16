@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+	x:Class="FormsListViewDemo.ViewCellListviewPage"
+	xmlns:local="clr-namespace:FormsListViewDemo;assembly=FormsListViewDemo"
+	BindingContext="{x:Static local:DataFactory.People}"
+	xmlns:converters="clr-namespace:FormsListViewDemo.ValueConverters;assembly=FormsListViewDemo">
+
+	<ContentPage.Resources>
+    <ResourceDictionary>
+      <converters:StringToImageConverter x:Key="stringToImageConverter"></converters:StringToImageConverter>
+    </ResourceDictionary>
+  </ContentPage.Resources>
+	
+	<ContentPage.Content>
+		 <ListView x:Name="allContacts" ItemsSource="{Binding .}" Margin="0, 20, 0, 0">
+			 <ListView.ItemTemplate>
+              <DataTemplate>
+                <ImageCell Text="{Binding Name}" ImageSource="{Binding Thumbnail, Converter={StaticResource stringToImageConverter}}" />
+              </DataTemplate>
+            </ListView.ItemTemplate>
+		</ListView>
+	</ContentPage.Content>
+	
+</ContentPage>
