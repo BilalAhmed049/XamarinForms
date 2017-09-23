@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ui:ContentPageBase xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:rxui="clr-namespace:ReactiveUI.XamForms;assembly=ReactiveUI.XamForms" 
+             xmlns:ui="clr-namespace:ReactiveExtensionsWithXamarin.Core.Views;assembly=ReactiveExtensionsWithXamarin.Core"
+             xmlns:vms="clr-namespace:ReactiveExtensionsWithXamarin.Core.ViewModels;assembly=ReactiveExtensionsWithXamarin.Core"
+             x:TypeArguments="vms:CarsListViewModel" 
+             x:Class="ReactiveExtensionsWithXamarin.Core.Views.CarsListViewPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Entry HorizontalOptions="FillAndExpand" Placeholder="Enter car brand..." Margin="10, 0, 10, 10" x:Name="SearchViewEntry"/>
+            <ListView x:Name="CarsListView" CachingStrategy="RecycleElement" Margin="6, 0, 6, 0">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ImageCell Text="{Binding Brand}" Detail="{Binding Model}" ImageSource="{Binding ThumbnailUrl}"/>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </StackLayout>
+    </ContentPage.Content>
+</ui:ContentPageBase>
