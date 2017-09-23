@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+	x:Class="Auth0Sample.View.LoginPage"
+	BindingContext="{Binding Login, Source={StaticResource Locator}}">
+	<ContentPage.Content>
+		<Grid>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="216*"/>
+				<RowDefinition Height="111*"/>
+				<RowDefinition Height="292*"/>
+			</Grid.RowDefinitions>
+			<Image HorizontalOptions="Center" VerticalOptions="Center" Source="{Binding AppLogoImage}" HeightRequest="110" Grid.Row="0"/>
+			<StackLayout Orientation="Horizontal" VerticalOptions="CenterAndExpand" HorizontalOptions="Center" Grid.Row="1">
+			<StackLayout Orientation="Vertical" HorizontalOptions="Center">
+			<Label Text="Sign in with social networks:" FontAttributes="Bold"/>
+	          <StackLayout Orientation="Horizontal" HorizontalOptions="CenterAndExpand"> 
+					<Image Source="{Binding TwitterImageSource}" HeightRequest="50">
+     						<Image.GestureRecognizers>
+       							<TapGestureRecognizer Command="{Binding TwitterLogin}"/>
+     						</Image.GestureRecognizers>
+  					</Image>
+					<Image Source="{Binding FacebookmageSource}" HeightRequest="50">
+     						<Image.GestureRecognizers>
+       							<TapGestureRecognizer Command="{Binding FacebookLogin}"/>
+     						</Image.GestureRecognizers>
+  					</Image>
+					<Image Source="{Binding MicrosofImageSource}" HeightRequest="50">
+     						<Image.GestureRecognizers>
+       							<TapGestureRecognizer Command="{Binding MicrosoftLogin}"/>
+     						</Image.GestureRecognizers>
+  					</Image>
+			    </StackLayout>
+				</StackLayout>
+		        </StackLayout>
+			<StackLayout Orientation="Vertical" HorizontalOptions="Center" Grid.Row="2">
+				<StackLayout Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+				<Image Source="{Binding LineImageSource}" WidthRequest="120"/>
+			    <Label Text="OR" FontSize="12" />
+				<Image Source="{Binding LineImageSource}" WidthRequest="120"/>
+				</StackLayout >
+
+                <StackLayout Orientation= "Vertical">
+                    <Button Text="Standard login" Margin="0,10,0,0" BorderWidth="1" BorderColor="Silver" Command="{Binding Login}"/>
+                </StackLayout>
+            </StackLayout>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>
