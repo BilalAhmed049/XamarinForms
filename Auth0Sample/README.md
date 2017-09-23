@@ -5,7 +5,7 @@
 
 This repository contains sample to help developers implement Auth0 login flow in Xamarin Forms application.
 
-Remember to turn on social media services to use social media login flow:
+Remember to turn on social media services in Auth0 portal to use social media login flow:
 
 ![Social media services](https://s26.postimg.org/ygnuybh0p/Capture.png)
 
