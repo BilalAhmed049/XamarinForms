@@ -1,7 +1,6 @@
 
 # Auth0 with Xamarin Forms PCL project
-
-![Auth0 with Xamarin Forms PCL project](https://s26.postimg.org/9w7a9ulex/Auth0_Sample.png)
+<img align="center" src="https://s26.postimg.org/9w7a9ulex/Auth0_Sample.png" alt="Auth0 with Xamarin Forms PCL project">
 
 This repository contains sample to help developers implement Auth0 login flow in Xamarin Forms application.
 
