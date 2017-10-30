@@ -12,4 +12,4 @@ Remember to turn on social media services in Auth0 portal to use social media lo
 
 ![](https://thumbs.gfycat.com/MilkyLoneBackswimmer-size_restricted.gif)
 
-![](https://media.giphy.com/media/l378Aarb8kkSzj38I/giphy.gif)
+![](https://thumbs.gfycat.com/AgileWeirdFirebelliedtoad-size_restricted.gif)
